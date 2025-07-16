@@ -60,4 +60,1111 @@
             right: -20px;
             font-size: 120px;
             opacity: 0.1;
-            animation: float 20s l
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            margin-right: 1rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .logo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-style: italic;
+        }
+
+        /* Layout principale responsive */
+        .main-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            
+            .header {
+                padding: 1rem;
+            }
+            
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+        }
+
+        /* Chat container con design moderno */
+        .chat-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 2px solid var(--warm-beige);
+        }
+
+        .chat-header {
+            background: linear-gradient(45deg, var(--deep-brown), var(--primary-orange));
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .guru-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--secondary-gold), var(--soft-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            box-shadow: 0 4px 15px var(--shadow-strong);
+        }
+
+        .guru-info h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .guru-status {
+            display: flex;
+            align-items: center;
+            opacity: 0.9;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--soft-green);
+            margin-right: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        /* Area messaggi con scroll ottimizzato */
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            max-height: 400px;
+            background: linear-gradient(to bottom, #fff, var(--warm-beige));
+        }
+
+        .message {
+            margin-bottom: 1.5rem;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.guru {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .message.user {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .guru .message-avatar {
+            background: linear-gradient(45deg, var(--primary-orange), var(--secondary-gold));
+            color: white;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 1rem 1.5rem;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .guru .message-content {
+            background: white;
+            border: 2px solid var(--warm-beige);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .user .message-content {
+            background: linear-gradient(45deg, var(--primary-orange), var(--secondary-gold));
+            color: white;
+        }
+
+        .message-content p {
+            margin-bottom: 0.5rem;
+        }
+
+        .message-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .message-content strong {
+            color: var(--primary-orange);
+        }
+
+        .guru .message-content strong {
+            color: var(--deep-brown);
+        }
+
+        /* Indicatore di digitazione */
+        .typing-indicator {
+            display: none;
+            align-items: center;
+            margin: 1rem 0;
+        }
+
+        .typing-dots {
+            display: flex;
+            margin-left: 1rem;
+        }
+
+        .typing-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary-orange);
+            margin: 0 2px;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Input area con design pulito */
+        .chat-input {
+            padding: 1.5rem;
+            background: var(--warm-beige);
+            border-top: 2px solid #eee;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--primary-orange);
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input input:focus {
+            border-color: var(--secondary-gold);
+            box-shadow: 0 0 0 3px rgba(247, 147, 30, 0.2);
+        }
+
+        .send-btn {
+            background: linear-gradient(45deg, var(--primary-orange), var(--secondary-gold));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow);
+            font-size: 1.2rem;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px var(--shadow);
+        }
+
+        /* Sidebar con cards moderne */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sidebar-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px var(--shadow);
+            border: 2px solid var(--warm-beige);
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: var(--deep-brown);
+        }
+
+        .card-header-icon {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+            color: var(--primary-orange);
+        }
+
+        .card-header h3 {
+            font-size: 1.2rem;
+        }
+
+        /* Profilo utente */
+        .user-profile {
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--soft-green), var(--secondary-gold));
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .action-btn {
+            padding: 0.8rem;
+            background: linear-gradient(45deg, var(--primary-orange), var(--secondary-gold));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        /* Lista risorse */
+        .resources-list {
+            list-style: none;
+        }
+
+        .resources-list li {
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            background: var(--warm-beige);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-orange);
+        }
+
+        .resources-list li:hover {
+            background: var(--primary-orange);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        /* Modal per test costituzionale */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: var(--primary-orange);
+        }
+
+        .constitution-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-question {
+            background: var(--warm-beige);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-orange);
+        }
+
+        .form-question h4 {
+            margin-bottom: 1rem;
+            color: var(--deep-brown);
+        }
+
+        .form-options {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .form-options label {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .form-options label:hover {
+            border-color: var(--primary-orange);
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .form-options input[type="radio"] {
+            margin-right: 1rem;
+            accent-color: var(--primary-orange);
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, var(--primary-orange), var(--secondary-gold));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        /* Utilities */
+        .text-center { text-align: center; }
+        .mb-1 { margin-bottom: 1rem; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header principale con branding -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🕉</span>
+                    <h1>Ayur Shakti</h1>
+                </div>
+                <p class="tagline">Il tuo Guru Ayurvedico Personale - Saggezza antica, scienza moderna</p>
+            </div>
+        </header>
+
+        <!-- Contenuto principale -->
+        <main class="main-content">
+            <!-- Container della chat principale -->
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="guru-avatar">
+                        ⚕️
+                    </div>
+                    <div class="guru-info">
+                        <h3>Guru Ayur Shakti</h3>
+                        <div class="guru-status">
+                            <div class="status-dot"></div>
+                            <span>Online e pronto ad aiutarti</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Area messaggi -->
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message guru">
+                        <div class="message-avatar">
+                            🕉
+                        </div>
+                        <div class="message-content">
+                            <p>🙏 Namaste! Sono Ayur Shakti, il tuo guru ayurvedico personale.</p>
+                            <p>Sono qui per accompagnarti nel tuo viaggio verso il benessere, utilizzando la saggezza millenaria dell'Ayurveda supportata dalla scienza moderna.</p>
+                            <p><strong>Per iniziare nel modo migliore</strong>, ti consiglio di completare il test costituzionale che trovi nella barra laterale. Questo mi permetterà di conoscerti meglio e di offrirti consigli personalizzati per la tua costituzione unica.</p>
+                            <p>Come posso aiutarti oggi? 😊</p>
+                        </div>
+                    </div>
+
+                    <!-- Indicatore di digitazione -->
+                    <div class="typing-indicator" id="typingIndicator">
+                        <div class="message-avatar">
+                            🕉
+                        </div>
+                        <div class="typing-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Area input -->
+                <div class="chat-input">
+                    <div class="input-group">
+                        <input type="text" id="messageInput" placeholder="Scrivi la tua domanda..." autocomplete="off">
+                        <button class="send-btn" id="sendButton" title="Invia messaggio">
+                            ➤
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar con profilo e risorse -->
+            <div class="sidebar">
+                <!-- Card profilo utente -->
+                <div class="sidebar-card">
+                    <div class="card-header">
+                        <span class="card-header-icon">👤</span>
+                        <h3>Il Tuo Profilo</h3>
+                    </div>
+                    <div class="user-profile">
+                        <div class="profile-avatar" id="userAvatar">
+                            👤
+                        </div>
+                        <h4 id="userName">Benvenuto!</h4>
+                        <p id="userConstitution">Completa il test per scoprire la tua costituzione</p>
+                        <div class="quick-actions">
+                            <button class="action-btn" onclick="openConstitutionTest()">
+                                📋<br>Test Costituzionale
+                            </button>
+                            <button class="action-btn" onclick="showPersonalizedPlan()">
+                                📅<br>Piano Personalizzato
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card risorse -->
+                <div class="sidebar-card">
+                    <div class="card-header">
+                        <span class="card-header-icon">📚</span>
+                        <h3>Risorse Ayurvediche</h3>
+                    </div>
+                    <ul class="resources-list">
+                        <li onclick="exploreResource('guida')">
+                            📄 Guida Pratica PDF
+                        </li>
+                        <li onclick="exploreResource('alimentazione')">
+                            🍽️ Alimentazione per Dosha
+                        </li>
+                        <li onclick="exploreResource('routine')">
+                            🌅 Routine Quotidiana
+                        </li>
+                        <li onclick="exploreResource('erbe')">
+                            🌿 Le 10 Erbe Essenziali
+                        </li>
+                        <li onclick="exploreResource('emergenza')">
+                            🚑 Kit Pronto Soccorso
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card community -->
+                <div class="sidebar-card">
+                    <div class="card-header">
+                        <span class="card-header-icon">👥</span>
+                        <h3>Community</h3>
+                    </div>
+                    <p class="mb-1">Connettiti con altri praticanti ayurvedici</p>
+                    <button class="action-btn" style="width: 100%;" onclick="joinCommunity()">
+                        💬 Unisciti alla Community
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal per test costituzionale -->
+    <div id="constitutionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeConstitutionTest()">&times;</span>
+            <h2 class="text-center mb-1" style="color: var(--deep-brown);">
+                📋 Test Costituzionale Ayurvedico
+            </h2>
+            
+            <div class="constitution-form" id="constitutionForm">
+                <!-- Le domande verranno popolate dal JavaScript -->
+            </div>
+            
+            <button class="submit-btn" onclick="calculateConstitution()">
+                🧮 Calcola la Mia Costituzione
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript per funzionalità interattive -->
+    <script>
+        // Sistema di gestione dati utente con localStorage
+        let userData = {
+            name: '',
+            constitution: '',
+            dominantDosha: '',
+            chatHistory: [],
+            preferences: {},
+            lastInteraction: null
+        };
+
+        // Domande per il test costituzionale
+        const constitutionQuestions = [
+            {
+                id: 'build',
+                question: 'Come descriveresti la tua corporatura naturale?',
+                options: [
+                    { value: 'vata', text: 'Magra, ossa prominenti, difficoltà a prendere peso' },
+                    { value: 'pitta', text: 'Media, muscolosa, peso facilmente controllabile' },
+                    { value: 'kapha', text: 'Robusta, tendenza ad accumulare peso facilmente' }
+                ]
+            },
+            {
+                id: 'skin',
+                question: 'Com\'è la tua pelle naturalmente?',
+                options: [
+                    { value: 'vata', text: 'Secca, ruvida, fredda al tatto' },
+                    { value: 'pitta', text: 'Calda, oleosa, tendenza a irritazioni' },
+                    { value: 'kapha', text: 'Spessa, morbida, oleosa' }
+                ]
+            },
+            {
+                id: 'digestion',
+                question: 'Come descriveresti la tua digestione abituale?',
+                options: [
+                    { value: 'vata', text: 'Irregolare, gas, gonfiore, appetito variabile' },
+                    { value: 'pitta', text: 'Forte, fame regolare, acidità occasionale' },
+                    { value: 'kapha', text: 'Lenta, pesantezza dopo i pasti, appetito moderato' }
+                ]
+            },
+            {
+                id: 'sleep',
+                question: 'Come dormi solitamente?',
+                options: [
+                    { value: 'vata', text: 'Sonno leggero, facilmente disturbato, sogni intensi' },
+                    { value: 'pitta', text: 'Sonno profondo ma breve, sogni vividi' },
+                    { value: 'kapha', text: 'Sonno lungo e profondo, difficoltà ad alzarsi' }
+                ]
+            },
+            {
+                id: 'stress',
+                question: 'Come reagisci tipicamente allo stress?',
+                options: [
+                    { value: 'vata', text: 'Ansia, preoccupazione, irrequietezza' },
+                    { value: 'pitta', text: 'Irritabilità, rabbia, impazienza' },
+                    { value: 'kapha', text: 'Ritiro, malinconia, apatia' }
+                ]
+            },
+            {
+                id: 'memory',
+                question: 'Come funziona la tua memoria?',
+                options: [
+                    { value: 'vata', text: 'Apprendo velocemente ma dimentico facilmente' },
+                    { value: 'pitta', text: 'Buona memoria selettiva per ciò che mi interessa' },
+                    { value: 'kapha', text: 'Apprendo lentamente ma ricordo a lungo' }
+                ]
+            }
+        ];
+
+        // Database di conoscenza ayurvedica semplificato
+        const knowledgeBase = {
+            alimentazione: {
+                vata: "Per la costituzione Vata, privilegi cibi caldi, oleosi e nutrienti. Cereali come riso e avena, verdure cotte come carote e barbabietole, spezie dolci come cannella e cardamomo. Evita cibi freddi, secchi e crudi che aggravano la tua natura ventosa.",
+                pitta: "La tua costituzione Pitta beneficia di cibi freschi, dolci e astringenti. Prediligi riso, verdure verdi, frutta dolce come uva e pere, spezie rinfrescanti come coriandolo e finocchio. Evita piccante, acido e fritto che alimentano il tuo fuoco interno.",
+                kapha: "Per Kapha, scegli cibi leggeri, piccanti e amari. Miglio, verdure amare, spezie stimolanti come zenzero e pepe nero. Riduci latticini, dolci e grassi che appesantiscono la tua natura già densa."
+            },
+            digestione: {
+                vata: "Il tuo Agni (fuoco digestivo) è irregolare. Mangia a orari regolari, mastica lentamente, bevi liquidi caldi. Una tisana di zenzero prima dei pasti può aiutare. Evita di mangiare quando sei agitato o stressato.",
+                pitta: "Il tuo Agni è forte ma può essere eccessivo. Non saltare mai i pasti, evita cibi troppo piccanti o acidi. Una tisana di finocchio dopo i pasti può calmare l'acidità. Mangia in ambiente tranquillo.",
+                kapha: "Il tuo Agni è lento e ha bisogno di stimolazione. Mangia solo quando hai veramente fame, aggiungi spezie digestive come zenzero e pepe nero. Evita cibi pesanti e grassi, preferisci pasti leggeri."
+            },
+            sonno: {
+                vata: "Il tuo sonno Vata è delicato. Crea una routine serale rilassante: massaggio ai piedi con olio di sesamo, tisana calda, ambiente caldo e silenzioso. Vai a letto entro le 22:00 per calmare il sistema nervoso.",
+                pitta: "Per migliorare il sonno Pitta, raffredda corpo e mente prima di dormire. Evita stimoli intensi la sera, fai una doccia tiepida, usa profumi rinfrescanti come sandalo. La meditazione aiuta a calmare la mente focosa.",
+                kapha: "Il tuo sonno Kapha tende ad essere pesante. Evita di dormire troppo (max 7-8 ore), alzati presto, fai attività fisica durante il giorno. Evita cene pesanti e crea un ambiente energizzante per il risveglio."
+            },
+            ansia: {
+                vata: "L'ansia è comune in Vata. Pratica respirazione profonda (4-4-4), massaggi regolari con olio caldo, attività creative tranquille. L'Ashwagandha può essere molto utile. Mantieni routine regolari per stabilizzare il sistema nervoso.",
+                pitta: "Lo stress Pitta si manifesta come irritabilità. Pratica attività rinfrescanti, evita competizione eccessiva, fai meditazione in luoghi freschi. Tisane di rosa o coriandolo possono calmare il fuoco mentale.",
+                kapha: "Lo stress Kapha diventa apatia. Attivati con esercizio fisico energico, socializzazione, musica stimolante. Spezie come zenzero e pepe nero possono risvegliare l'energia. Evita isolamento e sedentarietà."
+            },
+            routine: {
+                vata: "Routine Vata: Sveglia regolare (6:30), acqua tiepida, massaggio corpo con olio sesamo, yoga dolce, respirazione calmante, colazione calda e nutriente. La regolarità è fondamentale per te.",
+                pitta: "Routine Pitta: Sveglia naturale (6:00), acqua fresca, esercizio moderato, respirazione rinfrescante, colazione equilibrata. Evita fretta e pressione, mantieni calma e concentrazione.",
+                kapha: "Routine Kapha: Sveglia precoce (5:30), acqua calda con zenzero, esercizio energico, respirazione dinamica, colazione leggera. L'attivazione mattutina è cruciale per la tua energia giornaliera."
+            }
+        };
+
+        // Personalità del Guru con risposte empatiche
+        const guruPersonality = {
+            emotional: {
+                anxiety: "Capisco perfettamente quanto possa essere difficile sentirsi ansiosi. È una sensazione molto comune, soprattutto per chi ha caratteristiche Vata predominanti. Non sei solo in questo, e ci sono modi naturali e dolci per ritrovare la serenità.",
+                fatigue: "La stanchezza che provi è reale e comprensibile. Il nostro corpo ci parla attraverso questi segnali, e l'Ayurveda ci insegna ad ascoltarlo con compassione. Insieme possiamo trovare modi per nutrire la tua energia vitale.",
+                digestion: "I problemi digestivi possono essere molto fastidiosi e influenzare tutto il nostro benessere. Sono qui per aiutarti a capire cosa il tuo corpo sta cercando di comunicarti e come rispondere con gentilezza.",
+                sleep: "Il sonno disturbato può essere davvero frustrante. Influenza tutto: l'umore, l'energia, la concentrazione. L'Ayurveda ha soluzioni dolci e naturali che possono aiutarti a ritrovare il riposo che meriti."
+            },
+            teaching: {
+                why_dosha: "Te lo spiego in modo semplice: i dosha sono come tre tipi di energia che abbiamo tutti, ma in proporzioni diverse. È come avere tre fiumi che scorrono dentro di te - uno rappresenta il movimento (Vata), uno la trasformazione (Pitta), uno la struttura (Kapha). Quando sono in equilibrio, stai bene!",
+                why_personalized: "Ecco perché la personalizzazione è così importante: quello che funziona per il tuo amico potrebbe non funzionare per te, perché avete costituzioni diverse. È come cercare di indossare scarpe della taglia sbagliata - tecnicamente sono scarpe, ma non vanno bene per i tuoi piedi!",
+                why_natural: "L'Ayurveda preferisce rimedi naturali perché lavora CON il tuo corpo, non contro. È come aiutare una pianta a crescere dandole il terreno giusto, invece di forzarla in un ambiente sbagliato."
+            },
+            empowerment: {
+                you_can: "Il bello dell'Ayurveda è che ti da strumenti che puoi usare subito, a casa tua. Non devi dipendere sempre da qualcun altro - stai imparando a prenderti cura di te stesso nel modo più naturale possibile.",
+                small_steps: "Ricorda: piccoli cambiamenti costanti sono molto più potenti di grandi sforzi sporadici. È come gocce d'acqua che scavano la roccia - la gentilezza verso se stessi è la forza più potente.",
+                listen_body: "Il tuo corpo è il tuo miglior insegnante. Io posso darti la mappa, ma sei tu che cammini il sentiero. Impara ad ascoltarti - la saggezza è già dentro di te."
+            }
+        };
+
+        // Inizializzazione dell'applicazione
+        function init() {
+            loadUserData();
+            setupEventListeners();
+            document.getElementById('messageInput').focus();
+        }
+
+        // Caricamento dati utente salvati
+        function loadUserData() {
+            try {
+                const stored = localStorage.getItem('ayurShaktiUser');
+                if (stored) {
+                    userData = { ...userData, ...JSON.parse(stored) };
+                    updateUserProfile();
+                }
+            } catch (e) {
+                console.log('Errore nel caricamento dati utente:', e);
+            }
+        }
+
+        // Salvataggio dati utente
+        function saveUserData() {
+            try {
+                localStorage.setItem('ayurShaktiUser', JSON.stringify(userData));
+            } catch (e) {
+                console.log('Errore nel salvataggio dati utente:', e);
+            }
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            const messageInput = document.getElementById('messageInput');
+            const sendButton = document.getElementById('sendButton');
+
+            messageInput.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+
+            sendButton.addEventListener('click', sendMessage);
+
+            // Chiusura modal quando si clicca fuori
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('constitutionModal');
+                if (event.target === modal) {
+                    closeConstitutionTest();
+                }
+            });
+        }
+
+        // Invio messaggio
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            addMessageToChat('user', message);
+            input.value = '';
+            
+            showTypingIndicator();
+            
+            // Simula tempo di elaborazione
+            setTimeout(() => {
+                const response = generateGuruResponse(message);
+                hideTypingIndicator();
+                addMessageToChat('guru', response);
+                
+                // Salva nella cronologia
+                userData.chatHistory.push({
+                    timestamp: new Date().toISOString(),
+                    user: message,
+                    guru: response
+                });
+                userData.lastInteraction = new Date().toISOString();
+                saveUserData();
+            }, 1500 + Math.random() * 1000);
+        }
+
+        // Aggiunta messaggio alla chat
+        function addMessageToChat(sender, message) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            
+            if (sender === 'guru') {
+                messageDiv.innerHTML = `
+                    <div class="message-avatar">🕉</div>
+                    <div class="message-content">${formatGuruMessage(message)}</div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="message-content">${escapeHtml(message)}</div>
+                `;
+            }
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Formattazione messaggio del Guru
+        function formatGuruMessage(message) {
+            let formatted = escapeHtml(message);
+            
+            // Evidenzia concetti importanti
+            formatted = formatted.replace(/\b(Vata|Pitta|Kapha|Agni|Ojas|Ama|dosha|costituzione)\b/g, '<strong>$1</strong>');
+            
+            // Sostituisce emoticon semplici
+            formatted = formatted.replace(/:\)/g, '😊');
+            formatted = formatted.replace(/:\(/g, '😔');
+            formatted = formatted.replace(/<3/g, '❤️');
+            
+            // Dividi in paragrafi
+            const paragraphs = formatted.split('\n').filter(p => p.trim());
+            return paragraphs.map(p => `<p>${p}</p>`).join('');
+        }
+
+        // Escape HTML per sicurezza
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Indicatori di digitazione
+        function showTypingIndicator() {
+            document.getElementById('typingIndicator').style.display = 'flex';
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function hideTypingIndicator() {
+            document.getElementById('typingIndicator').style.display = 'none';
+        }
+
+        // Generazione risposta del Guru
+        function generateGuruResponse(userMessage) {
+            const message = userMessage.toLowerCase();
+            
+            // Determina contesto emotivo
+            let emotionalContext = '';
+            if (message.includes('ansia') || message.includes('ansioso') || message.includes('preoccup') || message.includes('stress')) {
+                emotionalContext = 'anxiety';
+            } else if (message.includes('stanc') || message.includes('energia') || message.includes('debolez')) {
+                emotionalContext = 'fatigue';
+            } else if (message.includes('diger') || message.includes('stomaco') || message.includes('pancia') || message.includes('gonfi')) {
+                emotionalContext = 'digestion';
+            } else if (message.includes('sonno') || message.includes('dorm') || message.includes('insonnia')) {
+                emotionalContext = 'sleep';
+            }
+            
+            let response = '';
+            
+            // Validazione emotiva se necessaria
+            if (emotionalContext && guruPersonality.emotional[emotionalContext]) {
+                response += guruPersonality.emotional[emotionalContext] + '\n\n';
+            }
+            
+            // Determina argomento e fornisce consigli
+            let topic = '';
+            let advice = '';
+            
+            if (message.includes('mangi') || message.includes('cibo') || message.includes('aliment') || message.includes('dieta')) {
+                topic = 'alimentazione';
+            } else if (message.includes('diger') || message.includes('stomaco') || message.includes('pancia')) {
+                topic = 'digestione';
+            } else if (message.includes('sonno') || message.includes('dorm')) {
+                topic = 'sonno';
+            } else if (message.includes('ansia') || message.includes('stress') || message.includes('nervos')) {
+                topic = 'ansia';
+            } else if (message.includes('routine') || message.includes('mattina') || message.includes('giornata')) {
+                topic = 'routine';
+            }
+            
+            // Consigli specifici per costituzione
+            if (topic && userData.dominantDosha && knowledgeBase[topic] && knowledgeBase[topic][userData.dominantDosha]) {
+                advice = knowledgeBase[topic][userData.dominantDosha];
+                
+                if (topic === 'alimentazione') {
+                    advice += '\n\n' + guruPersonality.teaching.why_personalized;
+                } else if (topic === 'digestione') {
+                    advice += '\n\n' + 'Il fuoco digestivo (Agni) è diverso per ogni costituzione. Per questo ti do consigli specifici per il tuo tipo ' + userData.dominantDosha + '.';
+                }
+            }
+            
+            // Risposte di fallback
+            if (!advice) {
+                if (message.includes('ciao') || message.includes('salve') || message.includes('buongiorno')) {
+                    const userName = userData.name ? userData.name : 'amico';
+                    const constitutionInfo = userData.dominantDosha ? `, con la tua natura ${userData.dominantDosha} predominante` : '';
+                    advice = `Ciao ${userName}! È sempre un piacere sentirti${constitutionInfo}. Come posso accompagnarti oggi nel tuo percorso di benessere? Se hai domande specifiche su alimentazione, sonno, digestione o routine, sono qui per te.`;
+                } else if (message.includes('grazie') || message.includes('ringrazi')) {
+                    advice = 'È un onore poterti aiutare! 🙏 Ricorda che ogni piccolo passo verso il benessere è prezioso. Sono sempre qui quando hai bisogno di guidance ayurvedica. Il tuo percorso di salute è unico e meraviglioso.';
+                } else if (message.includes('test') || message.includes('costituzione') || message.includes('dosha')) {
+                    if (!userData.dominantDosha) {
+                        advice = 'Ottima domanda! Il test costituzionale è fondamentale per conoscerti meglio. Puoi trovarlo nel pannello laterale "Test Costituzionale". Ti farà alcune domande sulle tue caratteristiche fisiche e mentali per determinare la tua costituzione unica. Una volta completato, potrò darti consigli molto più precisi e personalizzati!';
+                    } else {
+                        advice = `Dalla tua costituzione ${userData.dominantDosha}, emergono caratteristiche specifiche che guidano i miei consigli. Se vuoi approfondire o hai notato dei cambiamenti, possiamo sempre rifare il test. La costituzione è stabile, ma il nostro stato attuale può variare con le stagioni e la vita.`;
+                    }
+                } else {
+                    advice = `Apprezzo la tua domanda! Per darti il consiglio migliore, ho bisogno di capire meglio la tua situazione. ${userData.dominantDosha ? `Conosco già la tua costituzione ${userData.dominantDosha}, che è un'ottima base.` : 'Ti consiglio di completare prima il test costituzionale per consigli personalizzati.'}\n\nPotresti essere più specifico? Ad esempio:\n• Hai problemi di digestione, sonno, o energia?\n• Cerchi consigli per l'alimentazione o la routine quotidiana?\n• C'è qualche disturbo particolare che vorresti affrontare naturalmente?`;
+                }
+            }
+            
+            response += advice;
+            
+            // Messaggio di empowerment casuale
+            if (Math.random() > 0.5) {
+                const empowermentKeys = Object.keys(guruPersonality.empowerment);
+                const randomKey = empowermentKeys[Math.floor(Math.random() * empowermentKeys.length)];
+                response += '\n\n' + guruPersonality.empowerment[randomKey];
+            }
+            
+            // Sempre disponibile
+            response += '\n\nSono sempre qui se hai altre domande. Il tuo benessere è il mio obiettivo! 🌿';
+            
+            return response;
+        }
+
+        // Test costituzionale
+        function openConstitutionTest() {
+            const modal = document.getElementById('constitutionModal');
+            const form = document.getElementById('constitutionForm');
+            
+            form.innerHTML = constitutionQuestions.map((q, index) => `
+                <div class="form-question">
+                    <h4>${index + 1}. ${q.question}</h4>
+                    <div class="form-options">
+                        ${q.options.map(option => `
+                            <label>
+                                <input type="radio" name="${q.id}" value="${option.value}">
+                                <span>${option.text}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+            
+            modal.style.display = 'block';
+        }
+
+        function closeConstitutionTest() {
+            document.getElementById('constitutionModal').style.display = 'none';
+        }
+
+        function calculateConstitution() {
+            const form = document.getElementById('constitutionForm');
+            const formData = new FormData(form);
+            
+            const doshaCounts = { vata: 0, pitta: 0, kapha: 0 };
+            
+            constitutionQuestions.forEach(q => {
+                const answer = formData.get(q.id);
+                if (answer) {
+                    doshaCounts[answer]++;
+                }
+            });
+            
+            const dominant = Object.keys(doshaCounts).reduce((a, b) => 
+                doshaCounts[a] > doshaCounts[b] ? a : b
+            );
+            
+            userData.dominantDosha = dominant;
+            userData.constitution = `${dominant.charAt(0).toUpperCase() + dominant.slice(1)} predominante`;
+            
+            if (!userData.name) {
+                const name = prompt('Come posso chiamarti? (Nome opzionale)');
+                if (name) userData.name = name;
+            }
+            
+            saveUserData();
+            updateUserProfile();
+            closeConstitutionTest();
+            
+            setTimeout(() => {
+                const constitutionInfo = getConstitutionInfo(dominant);
+                addMessageToChat('guru', `🎉 Fantastico! Ho completato l'analisi della tua costituzione.\n\n${constitutionInfo}\n\nOra che ti conosco meglio, posso offrirti consigli molto più precisi e personalizzati. Ogni mio suggerimento terrà conto della tua natura ${userData.constitution}!\n\nHai domande sulla tua costituzione o vuoi consigli specifici per il tuo tipo?`);
+            }, 500);
+        }
+
+        function getConstitutionInfo(dosha) {
+            const info = {
+                vata: "**La tua costituzione è VATA predominante** 🌪️\n\nSei una persona dal sistema nervoso sensibile, creativa e dinamica. La tua energia è come il vento: veloce, leggera, ma a volte irregolare. Caratteristiche tipiche: creatività, intuizione, entusiasmo, ma anche tendenza all'ansia e all'irregolarità. I tuoi punti da curare: digestione regolare, sonno di qualità, routine stabili, calore e nutrimento.",
+                pitta: "**La tua costituzione è PITTA predominante** 🔥\n\nSei una persona dal metabolismo efficiente, intelligente e determinata. La tua energia è come il fuoco: intensa, focosa, trasformativa. Caratteristiche tipiche: leadership, precisione, buona digestione, ma anche tendenza all'irritabilità e al perfezionismo. I tuoi punti da curare: moderazione, raffreddamento, gestione dello stress, evitare eccessi.",
+                kapha: "**La tua costituzione è KAPHA predominante** 🌍\n\nSei una persona dalla costituzione robusta, calma e stabile. La tua energia è come la terra: solida, nutriente, resistente. Caratteristiche tipiche: forza, pazienza, lealtà, memoria eccellente, ma anche tendenza alla lentezza e all'accumulo. I tuoi punti da curare: stimolazione, movimento, leggerezza, evitare ristagni."
+            };
+            return info[dosha];
+        }
+
+        function updateUserProfile() {
+            const userName = document.getElementById('userName');
+            const userConstitution = document.getElementById('userConstitution');
+            const userAvatar = document.getElementById('userAvatar');
+            
+            if (userData.name) {
+                userName.textContent = userData.name;
+            }
+            
+            if (userData.constitution) {
+                userConstitution.textContent = userData.constitution;
+                
+                const avatarIcons = {
+                    vata: '🌪',
+                    pitta: '🔥',
+                    kapha: '🌍'
+                };
+                
+                const icon = avatarIcons[userData.dominantDosha] || '👤';
+                userAvatar.textContent = icon;
+            }
+        }
+
+        // Funzioni sidebar
+        function showPersonalizedPlan() {
+            if (!userData.dominantDosha) {
+                alert('Completa prima il test costituzionale per ricevere un piano personalizzato!');
+                return;
+            }
+            
+            const plans = {
+                vata: "**Piano Personalizzato Vata** 🌪️\n\n**Routine Mattutina:**\n• Sveglia regolare (6:30)\n• Massaggio con olio sesamo\n• Yoga dolce 15 min\n• Colazione calda\n\n**Alimentazione:**\n• Cibi caldi e oleosi\n• Pasti regolari\n• Tisane calde\n\n**Sera:**\n• Cena entro le 19:00\n• Massaggio piedi\n• Letto entro 22:00",
+                pitta: "**Piano Personalizzato Pitta** 🔥\n\n**Routine Mattutina:**\n• Sveglia naturale (6:00)\n• Acqua fresca\n• Esercizio moderato\n• Colazione equilibrata\n\n**Alimentazione:**\n• Cibi freschi e dolci\n• Evitare piccante\n• Tisane rinfrescanti\n\n**Sera:**\n• Attività rilassanti\n• Ambiente fresco\n• Sonno ristoratore",
+                kapha: "**Piano Personalizzato Kapha** 🌍\n\n**Routine Mattutina:**\n• Sveglia precoce (5:30)\n• Esercizio energico\n• Respirazione dinamica\n• Colazione leggera\n\n**Alimentazione:**\n• Cibi piccanti e leggeri\n• Meno latticini\n• Spezie stimolanti\n\n**Sera:**\n• Attività sociali\n• Movimento\n• Sonno moderato"
+            };
+            
+            addMessageToChat('guru', plans[userData.dominantDosha]);
+        }
+
+        function exploreResource(type) {
+            const resources = {
+                guida: "📚 **Guida Pratica Ayurveda** - Una guida completa con tutto l'essenziale: test costituzionale, alimentazione per dosha, routine quotidiane, le 10 erbe indispensabili, kit pronto soccorso naturale e programma trasformazione 30 giorni. Perfetta da tenere sempre con te!",
+                alimentazione: "🍽️ **Alimentazione per Dosha** - Scopri cosa mangiare in base alla tua costituzione: cibi da favorire e da evitare, menu tipo, principi di combinazione, timing ottimale dei pasti e ricette specifiche per il tuo dosha.",
+                routine: "🌅 **Routine Quotidiana Ayurvedica** - Impara a strutturare la tua giornata secondo i ritmi naturali: routine mattutina energizzante, pausa pranzo consapevole, sera rilassante e sonno ristoratore. Tutto personalizzato per la tua costituzione.",
+                erbe: "🌿 **Le 10 Erbe Essenziali** - Una farmacia naturale nella tua dispensa: Curcuma, Zenzero, Ashwagandha, Brahmi, Triphala, Tulsi, Miele, Ghee, Semi di Finocchio e Olio di Sesamo. Con dosaggi, preparazioni e benefici specifici.",
+                emergenza: "🚑 **Kit Pronto Soccorso Naturale** - Rimedi immediati per problemi comuni: mal di testa, indigestione, raffreddore, insonnia, stress e ansia. Soluzioni rapide e naturali sempre a portata di mano."
+            };
+            
+            addMessageToChat('guru', resources[type] + '\n\nVuoi che ti dia consigli specifici su questo argomento in base alla tua costituzione?');
+        }
+
+        function joinCommunity() {
+            addMessageToChat('guru', "🤝 **Benvenuto nella Community Ayur Shakti!**\n\nLa nostra community è un luogo di condivisione e crescita dove praticanti ayurvedici si supportano nel loro percorso di benessere.\n\n**Cosa troverai:**\n• Condivisione esperienze e consigli\n• Gruppo WhatsApp per aggiornamenti quotidiani\n• Sfide mensili di benessere\n• Supporto tra praticanti della stessa costituzione\n\nPer unirti, scrivi 'COMMUNITY' e riceverai il link di accesso al gruppo WhatsApp! 📱");
+        }
+
+        // Inizializzazione quando la pagina è caricata
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
